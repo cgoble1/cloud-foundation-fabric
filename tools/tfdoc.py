@@ -54,8 +54,8 @@ try:
   from examples.utils import get_tftest_directive
 except ImportError:
   BASEDIR = Path(__file__).parents[1]
-  sys.path.append(str(BASEDIR / 'tests'))
-  from examples.utils import get_tftest_directive
+  sys.path.append(str(BASEDIR / 'tests/examples'))
+  from utils import get_tftest_directive
 
 __version__ = '2.1.0'
 
@@ -71,8 +71,8 @@ FILE_RE_MODULES = re.compile(
     r'(?sm)module\s*"[^"]+"\s*\{[^\}]*?source\s*=\s*"([^"]+)"')
 FILE_RE_RESOURCES = re.compile(r'(?sm)resource\s+"([^"]+)"')
 HEREDOC_RE = re.compile(r'(?sm)^<<\-?END(\s*.*?)\s*END$')
-MARK_BEGIN = '<!-- BEGIN TFDOC -->'
-MARK_END = '<!-- END TFDOC -->'
+MARK_BEGIN = '<!-- BEGIN_TF_DOCS -->'
+MARK_END = '<!-- END_TF_DOCS -->'
 MARK_OPTS_RE = re.compile(r'(?sm)<!-- TFDOC OPTS ((?:[a-z_]+:[0-1]\s*?)+) -->')
 OUT_ENUM = enum.Enum('O', 'OPEN ATTR ATTR_DATA CLOSE COMMENT TXT SKIP')
 OUT_RE = re.compile(r'''(?smx)
